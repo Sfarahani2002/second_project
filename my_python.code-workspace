@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../python/my_python"
+		},
+		{
+			"name": "Second_Project",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
