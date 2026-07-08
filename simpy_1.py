@@ -1,23 +1,23 @@
 import simpy
+import random
 
-CUST_INTER_ARR_TIME = 2 * 60                # 2   minutes
-
-env = simpy.Environment()
 
 def Customer(env, name):
-    print(f"{name}: Arrives at time {env.now}")
+    print(f"{name}: Arrives at time {env.now:.2f}")
     yield env.timeout(30)
-    print(f"{name}: Details entered bat time:{env.now}")
+    print(f"{name}: Details entered bat time:{env.now:.2f}")
     yield env.timeout(60)
-    print(f"{name}: Cash retrieved at time:{env.now}")
+    print(f"{name}: Cash retrieved at time:{env.now:.2f}")
 
-def customer_generator(env, cust_inter_arr_time):
+def customer_generator(env):
     cust_number = 1
     while True:
-        yield env.timeout(cust_inter_arr_time)
+        random_inter_arrival_time = random.uniform(1, 3) * 60 
+        yield env.timeout(random_inter_arrival_time)
         env.process(Customer(env=env, name = f"customer {cust_number}"))
         cust_number += 1
-        
-env.process(customer_generator(env=env, cust_inter_arr_time=CUST_INTER_ARR_TIME))
+
+env = simpy.Environment()        
+env.process(customer_generator(env=env))
 env.run(until= 10*60)                       # 10 mminutes
         
