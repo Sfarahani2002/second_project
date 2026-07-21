@@ -17,6 +17,7 @@ def customer_generator(env):
         env.process(Customer(env=env, name = f"customer {cust_number}"))
         cust_number += 1
 
+random.seed(2)
 env = simpy.Environment()        
 env.process(customer_generator(env=env))
 env.run(until= 10*60)                       # 10 mminutes
