@@ -2,17 +2,17 @@ import random
 
 def welcome():
     print("Welcome to this funny game")
-    print("I will guess a number between 1 100 and")
+    print("I will guess a number between 1 20 and")
     print("you have to guess it...")
     print("go go go")
     print()
 
-def finish():
+def finish(number, count):
     print("Good game")
     print(f"my number was {number} and you found it in {count}")
     print("")
     answer = input("Do you want to play again ? (Y/N)")
-    if answer .upper() == 'Y':
+    if answer .upper() == 'Y' or "YES":
         return True
     else:
         return False
@@ -28,8 +28,8 @@ def answer(computer, user):
     
     return "Wow! you won! Good guess!"
 
-def get_guess():
-    ans = input("What is your guess")
+def get_a_guess():
+    ans = input("What is your guess : ")
     return int(ans)
 
 
@@ -44,10 +44,10 @@ while (continue_playing):
     
     count = 0 
 
-while (not win (computer_number, guess)):
-    guess = get_a_guess()
+    while (not win (computer_number, guess)):
+        guess = get_a_guess()
     
-    count += 1
-    print(answer(computer_number, guess))
+        count += 1
+        print(answer(computer_number, guess))
         
     continue_playing = finish(computer_number, count)
