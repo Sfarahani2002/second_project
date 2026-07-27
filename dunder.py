@@ -12,5 +12,11 @@ class Book():
     def __str__(self):
         r = f"{self.name}, {self.page}"
         return r
+    
+    def __del__(self):
+        print(f"oh!! the {self.name} book is vanishing!!")
+        
+    
+    
 b = Book('python is fun', 193)
 print(b)
