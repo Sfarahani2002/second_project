@@ -11,8 +11,8 @@ t.hideturtle()
 t.penup()
 t.color("#ffb6c1")
 
-for scale in range(11, 25):
-    for i in range(90):
+for scale in range(11, 17):
+    for i in range(120):
         angle = i * (math.pi *2) / 120
         
         x = 16 * (math.sin(angle) ** 3) * scale
